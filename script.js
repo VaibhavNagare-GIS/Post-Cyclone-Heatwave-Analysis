@@ -15,9 +15,7 @@
 
   /* ---------------------------------------------------------------------
      1) TABS
-     Only wires up tab-row groups whose buttons declare aria-controls,
-     since the chart's compact metric switcher reuses .tab-button styling
-     without controlling a hidden panel.
+     Only wires up tab-row groups whose buttons declare aria-controls, since the chart's compact metric switcher reuses .tab-button styling without controlling a hidden panel.
      --------------------------------------------------------------------- */
   function initTabs() {
     document.querySelectorAll(".tab-row").forEach(function (row) {
@@ -40,10 +38,7 @@
 
   /* ---------------------------------------------------------------------
      2) STUDY AREA MAP
-     Landfall coordinates are taken directly from the project's analysis
-     notebook, the same coordinates used to plot the landfall marker on
-     the animation frames. Buffer circles are illustrative only, no
-     measured impact radius exists in the source data.
+     Landfall coordinates are taken directly from the project's analysis notebook, the same coordinates used to plot the landfall marker on the animation frames. Buffer circles are illustrative only, no measured impact radius exists in the source data.
      --------------------------------------------------------------------- */
   function initMap() {
     var mapEl = document.getElementById("study-map");
@@ -52,11 +47,11 @@
     var map = L.map("study-map", {
       scrollWheelZoom: false,
       attributionControl: true
-    }).setView([22.3, 87.8], 6);
+    }).setView([21.9, 88.0], 7);
 
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: "abc",
       maxZoom: 19
     }).addTo(map);
 
@@ -65,7 +60,7 @@
 
     var roiBounds = [[17, 85], [27, 90]];
     L.rectangle(roiBounds, {
-      color: "#f3efe3",
+      color: "#1a1a1a",
       weight: 2,
       dashArray: "6 6",
       fill: false
@@ -88,9 +83,9 @@
 
       var icon = L.divIcon({
         className: "landfall-pin",
-        html: '<span style="display:block;width:14px;height:14px;border-radius:50%;background:' + c.color + ';border:2px solid #f3efe3;box-shadow:0 0 0 4px rgba(0,0,0,0.35);"></span>',
-        iconSize: [14, 14],
-        iconAnchor: [7, 7]
+        html: '<span style="display:block;width:16px;height:16px;border-radius:50%;background:' + c.color + ';border:3px solid #1a1a1a;box-shadow:0 0 0 3px rgba(255,255,255,0.85);"></span>',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8]
       });
 
       L.marker([c.lat, c.lon], { icon: icon })
@@ -100,22 +95,6 @@
           "<br>" + c.lat.toFixed(1) + "\u00b0N, " + c.lon.toFixed(1) + "\u00b0E" +
           "<br>Temperature change: " + c.change
         );
-    });
-
-    var cities = [
-      { name: "Kolkata", lat: 22.5726, lon: 88.3639 },
-      { name: "Bhubaneswar", lat: 20.2961, lon: 85.8245 },
-      { name: "Guwahati", lat: 26.1445, lon: 91.7362 },
-      { name: "Dhaka", lat: 23.8103, lon: 90.4125 }
-    ];
-    cities.forEach(function (city) {
-      L.circleMarker([city.lat, city.lon], {
-        radius: 4,
-        color: "#f3efe3",
-        weight: 1.5,
-        fillColor: "#14141f",
-        fillOpacity: 1
-      }).addTo(map).bindTooltip(city.name, { direction: "top" });
     });
 
     L.control.scale({ imperial: false, position: "bottomleft" }).addTo(map);
@@ -129,7 +108,6 @@
           "<div class=\"row\"><span class=\"swatch\" style=\"background:#ff5b42\"></span> Amphan landfall</div>" +
           "<div class=\"row\"><span class=\"swatch\" style=\"background:#e88b1a\"></span> Yaas landfall</div>" +
           "<div class=\"row\"><span class=\"swatch\" style=\"background:#5b9bf5\"></span> Remal landfall</div>" +
-          "<div class=\"row\"><span class=\"swatch\" style=\"background:#14141f;border-color:#f3efe3\"></span> Major city</div>" +
           "<div class=\"row\"><span class=\"line\"></span> Analysis boundary</div>" +
           "<div class=\"row\">&#9675; Illustrative impact zone</div>";
         L.DomEvent.disableClickPropagation(div);
