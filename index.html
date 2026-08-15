@@ -30,7 +30,7 @@
 
     <section class="story-section" id="start" aria-labelledby="story-heading">
       <h2 id="story-heading">Does a heatwave follow the cyclone, or not</h2>
-      <p>The coast where West Bengal, Odisha and southern Bangladesh meet is one of the most cyclone-exposed places on Earth. The Bay of Bengal narrows into a funnel here, which pushes storm surge higher than it would run on an open coastline, and the land behind it is some of the most densely populated in the world, over 500 people per square kilometre in places. It is reasonable to expect that once the wind and floodwater clear, skies open up and the region swings into a heatwave. We checked whether that actually happens in the ERA5-Land temperature record for three recent cyclones, Amphan, Yaas and Remal, rather than assuming it.</p>
+      <p>This coast, where West Bengal, Odisha and Bangladesh meet, is one of the most cyclone-exposed places on Earth. After a storm clears, does the heat spike back up? We checked the ERA5-Land temperature record for three recent cyclones, Amphan, Yaas and Remal, to find out.</p>
     </section>
 
     <section class="map-section" id="map" aria-label="Study area map">
@@ -38,11 +38,6 @@
       <div class="map-frame-wrap">
         <div id="study-map" aria-label="Interactive map of the East and Northeast India study area showing the three cyclone landfall points and the analysis boundary"></div>
       </div>
-      <details class="map-note">
-        <summary>View the original static study area map</summary>
-        <p style="margin-top:14px;"><img src="visualizations/study_area_map_web.jpg" alt="Original static study area map showing cyclone landfall zones for Amphan, Yaas and Remal with impact buffer zones over West Bengal, Odisha and Bangladesh" loading="lazy" style="border:2px solid var(--ink);"></p>
-        <p style="margin-top:8px;"><a href="visualizations/study_area_map.png" target="_blank" rel="noopener noreferrer" style="font:600 13px var(--mono);color:var(--cool);">Open full-resolution image ↗</a></p>
-      </details>
     </section>
 
     <section class="snapshot-section" id="snapshot" aria-labelledby="snapshot-heading">
@@ -188,57 +183,85 @@
       </div>
     </section>
 
-    <section class="interpretation-section" id="interpretation" aria-labelledby="interpretation-heading">
-      <p class="eyebrow">The honest answer</p>
-      <h2 id="interpretation-heading">So, does the heat come back?</h2>
-      <div class="verdict-banner">Mostly no. Two of the three cyclones cooled the region down, not up.</div>
-      <div class="verdict-grid">
-        <div class="verdict-card cooling"><div>Amphan</div><div class="vc-value">&minus;1.29&deg;C</div><div>Cooled, significant</div></div>
-        <div class="verdict-card cooling"><div>Yaas</div><div class="vc-value">&minus;1.85&deg;C</div><div>Cooled, significant</div></div>
-        <div class="verdict-card warming"><div>Remal</div><div class="vc-value">+0.55&deg;C</div><div>Warmed, significant</div></div>
+    <div class="historical-title" id="verdict"><p class="eyebrow">After the numbers</p><h2 id="verdict-heading">Where this lands</h2></div>
+    <section class="historical-section" aria-labelledby="verdict-heading">
+      <div class="tab-row" role="tablist" aria-label="Verdict sections">
+        <button type="button" class="tab-button" role="tab" aria-selected="true" aria-controls="panel-honest" id="tab-honest">The honest answer</button>
+        <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-next" id="tab-next">What's next</button>
+        <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-achievement" id="tab-achievement">Where this came from</button>
+        <button type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="panel-sources" id="tab-sources">Sources</button>
       </div>
-      <p>Going in, the expectation was that clearer skies and drier ground after a cyclone would push temperatures up. That is not what happened for Amphan or Yaas. Both cooled the region by more than a degree, almost certainly because of the cloud cover, heavy rainfall and evaporative cooling that came with them. Only Remal, the weakest of the three, warmed the region afterward, and even that result is statistically solid rather than a fluke, the p-value is small enough that it is not noise.</p>
-      <p>So on the original question, whether cyclones reliably trigger a heatwave afterward, the answer this data gives is no. Two out of three going the opposite direction is enough to reject that as a general pattern here.</p>
-      <p>There is a second, smaller finding worth sitting with. Even in the two cyclones that cooled on average, the share of days that counted as local heatwave days was still well above the 5% you would expect by chance: 40.6% for Amphan, 15.6% for Yaas, and 84.4% for Remal. Average cooling and a high heatwave-day count are not actually a contradiction, an area can run cooler on average while still throwing occasional sharp local spikes, especially once skies clear later in the post-cyclone window. That pocket of extreme heat sitting inside a broader cooling trend is the part that would benefit from a closer look.</p>
-      <div class="takeaway-grid">
-        <div class="takeaway-card">
-          <div class="tk-num">01</div>
-          <h4>More cyclones</h4>
-          <p>Three events is a start, not a sample. A pattern this mixed needs more landfalls, across more seasons, before it settles into anything close to a rule.</p>
-        </div>
-        <div class="takeaway-card">
-          <div class="tk-num">02</div>
-          <h4>Add humidity and rainfall</h4>
-          <p>Temperature alone cannot explain why Amphan and Yaas cooled while Remal warmed. Precipitation and humidity data would help separate cloud-driven cooling from whatever pushed Remal the other way.</p>
-        </div>
-        <div class="takeaway-card">
-          <div class="tk-num">03</div>
-          <h4>Chase the local spikes</h4>
-          <p>The elevated heatwave-day percentage inside an overall cooling trend is the most interesting loose thread here, and it deserves its own finer-grained look.</p>
-        </div>
-      </div>
-    </section>
+      <div class="tab-divider"></div>
 
-    <section class="achievement-section" id="achievement" aria-labelledby="achievement-heading">
-      <p class="eyebrow">Where this project came from</p>
-      <h2 id="achievement-heading">Built for IEEE GRSS SPARK 2.0</h2>
-      <div class="achievement-badge">🏆 Winner &middot; Team Nakshamitra</div>
-      <p>This analysis was built for IEEE GRSS SPARK 2.0, under Problem Statement 4: Post-Cyclone Heatwave Analysis. Team Nakshamitra's submission, this study of Amphan, Yaas and Remal using ERA5-Land reanalysis data, won the competition.</p>
-      <div class="ack-block">
-        <p><strong>Acknowledgment.</strong> This project was built together with Barnali Bhowmik, a classmate from the MSc Geoinformatics program. From the data pull through the final analysis, this was teamwork, and the win belongs to both of us. Thank you, Barnali, for the hours and the collaboration that got us here.</p>
+      <div class="tab-panel" id="panel-honest" role="tabpanel" aria-labelledby="tab-honest">
+        <h3>So, does the heat come back?</h3>
+        <div class="verdict-banner" style="margin-top:16px;">Mostly no. Two of the three cyclones cooled the region down, not up.</div>
+        <div class="verdict-grid">
+          <div class="verdict-card cooling"><div>Amphan</div><div class="vc-value">&minus;1.29&deg;C</div><div>Cooled, significant</div></div>
+          <div class="verdict-card cooling"><div>Yaas</div><div class="vc-value">&minus;1.85&deg;C</div><div>Cooled, significant</div></div>
+          <div class="verdict-card warming"><div>Remal</div><div class="vc-value">+0.55&deg;C</div><div>Warmed, significant</div></div>
+        </div>
+        <div class="reason-grid">
+          <div class="reason-card">
+            <h4>Why it cooled</h4>
+            <p>Amphan and Yaas both dropped the region's average temperature by more than a degree. The likely cause is the storm itself: heavy cloud cover, intense rainfall and evaporative cooling that lingers for days after landfall.</p>
+          </div>
+          <div class="reason-card">
+            <h4>Why the hypothesis fails</h4>
+            <p>Two of three cyclones moved in the opposite direction from what was expected. That is enough to reject a general post-cyclone warming pattern here. Remal's warming is real and statistically solid, but it is the exception, not the rule.</p>
+          </div>
+          <div class="reason-card">
+            <h4>The heatwave paradox</h4>
+            <p>Even the two cooling cyclones still saw heatwave-day shares far above the 5% baseline: 40.6% for Amphan, 15.6% for Yaas. Average cooling and sharp local spikes can happen at the same time, and that overlap deserves a closer look.</p>
+          </div>
+        </div>
       </div>
-    </section>
 
-    <section class="credits-section" id="sources" aria-labelledby="sources-heading">
-      <p class="eyebrow">Sources</p>
-      <h2 id="sources-heading">Data, tools and links</h2>
-      <ul>
-        <li><a href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land" target="_blank" rel="noopener noreferrer">ERA5-Land hourly reanalysis</a>, Copernicus Climate Data Store, 2m temperature, the core dataset behind every number on this page</li>
-        <li>Analysis built in Python (h5py, NumPy, SciPy, Matplotlib, Cartopy) on Google Colab</li>
-        <li>Study area boundary: 17&deg;N&ndash;27&deg;N, 85&deg;E&ndash;90&deg;E</li>
-        <li><a href="https://github.com/VaibhavNagare-GIS/Post-Cyclone-Heatwave-Analysis" target="_blank" rel="noopener noreferrer">Full repository</a>, including the notebook, raw results CSV and figures</li>
-        <li>Basemap tiles: <a href="https://carto.com/basemaps" target="_blank" rel="noopener noreferrer">CARTO Dark Matter</a> via OpenStreetMap contributors</li>
-      </ul>
+      <div class="tab-panel" id="panel-next" role="tabpanel" aria-labelledby="tab-next" hidden>
+        <h3>What we'd chase next</h3>
+        <p class="takeaway-intro">Three cyclones is a start, not a finished picture. Here is what would sharpen it.</p>
+        <div class="takeaway-grid">
+          <div class="takeaway-card">
+            <div class="tk-num">01</div>
+            <h4>More cyclones</h4>
+            <p>Three events is a start, not a sample. A pattern this mixed needs more landfalls, across more seasons, before it settles into anything close to a rule.</p>
+          </div>
+          <div class="takeaway-card">
+            <div class="tk-num">02</div>
+            <h4>Add humidity and rainfall</h4>
+            <p>Temperature alone cannot explain why Amphan and Yaas cooled while Remal warmed. Precipitation and humidity data would help separate cloud-driven cooling from whatever pushed Remal the other way.</p>
+          </div>
+          <div class="takeaway-card">
+            <div class="tk-num">03</div>
+            <h4>Chase the local spikes</h4>
+            <p>The elevated heatwave-day percentage inside an overall cooling trend is the most interesting loose thread here, and it deserves its own finer-grained look.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="panel-achievement" role="tabpanel" aria-labelledby="tab-achievement" hidden>
+        <h3>Built for IEEE GRSS SPARK 2.0</h3>
+        <div class="achievement-grid">
+          <div>
+            <div class="achievement-badge">🏆 Winner &middot; Team Nakshamitra</div>
+            <p>This analysis was built for IEEE GRSS SPARK 2.0, under Problem Statement 4: Post-Cyclone Heatwave Analysis. Team Nakshamitra's submission, this study of Amphan, Yaas and Remal using ERA5-Land reanalysis data, won the competition.</p>
+          </div>
+          <div class="ack-block">
+            <p><strong>Acknowledgment.</strong> This project was built together with Barnali Bhowmik, a classmate from the MSc Geoinformatics program. From the data pull through the final analysis, this was teamwork, and the win belongs to both of us. Thank you, Barnali, for the hours and the collaboration that got us here.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel credits-section" id="panel-sources" role="tabpanel" aria-labelledby="tab-sources" hidden>
+        <h3>Data, tools and links</h3>
+        <ul>
+          <li><a href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land" target="_blank" rel="noopener noreferrer">ERA5-Land hourly reanalysis</a>, Copernicus Climate Data Store, 2m temperature, the core dataset behind every number on this page</li>
+          <li>Analysis built in Python (h5py, NumPy, SciPy, Matplotlib, Cartopy) on Google Colab</li>
+          <li>Study area boundary: 17&deg;N&ndash;27&deg;N, 85&deg;E&ndash;90&deg;E</li>
+          <li><a href="https://github.com/VaibhavNagare-GIS/Post-Cyclone-Heatwave-Analysis" target="_blank" rel="noopener noreferrer">Full repository</a>, including the notebook, raw results CSV and figures</li>
+          <li>Basemap tiles: standard <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> raster tiles, &copy; OpenStreetMap contributors</li>
+        </ul>
+      </div>
     </section>
   </main>
 
@@ -246,8 +269,9 @@
     <div class="footer-row">
       <div class="footer-identity">
         <p class="footer-name">Vaibhav Shivaji Nagare</p>
-        <p class="footer-repo"><a href="https://github.com/VaibhavNagare-GIS/Post-Cyclone-Heatwave-Analysis" target="_blank" rel="noopener noreferrer">github.com/VaibhavNagare-GIS/Post-Cyclone-Heatwave-Analysis</a></p>
-        <p class="footer-tagline">Post-cyclone heatwave analysis for IEEE GRSS SPARK 2.0, built with Barnali Bhowmik.</p>
+        <p class="footer-repo"><a href="https://github.com/VaibhavNagare-GIS/Post-Cyclone-Heatwave-Analysis" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+        <p class="footer-tagline">Post-cyclone heatwave analysis for IEEE GRSS SPARK 2.0</p>
+        <p class="footer-tagline">Built with Barnali Bhowmik and &#9749;</p>
       </div>
       <div class="social-links">
         <a href="https://github.com/VaibhavNagare-GIS" target="_blank" rel="noopener noreferrer" aria-label="VaibhavNagare-GIS on GitHub">
